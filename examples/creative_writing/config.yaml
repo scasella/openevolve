@@ -1,0 +1,38 @@
+max_iterations: 50
+checkpoint_interval: 10
+log_level: "INFO"
+
+# LLM configuration
+llm:
+  primary_model: "google/gemini-1.5-flash"
+  temperature: 0.8
+  max_tokens: 2000
+  timeout: 300
+
+# Prompt configuration
+prompt:
+  num_top_programs: 1
+
+# Database configuration
+database:
+  population_size: 10
+  archive_size: 5
+  num_islands: 1
+  elite_selection_ratio: 0.2
+  exploitation_ratio: 0.5
+
+# Evaluator configuration
+evaluator:
+  module_path: "examples.creative_writing.evaluator"
+  function_name: "evaluate"
+  timeout: 60
+  parallel_evaluations: 1
+  use_llm_feedback: true
+
+# Initial program configuration
+initial_program:
+  module_path: "examples.creative_writing.initial_program"
+  # function_name: "generate_creative_text" # Not strictly needed if the framework runs the module directly
+
+# Evolution settings
+allow_full_rewrites: true
